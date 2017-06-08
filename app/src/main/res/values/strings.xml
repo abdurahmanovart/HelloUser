@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HelloUser</string>
+    <string name="intro">Интро</string>
+    <string name="main_activity">Главная активити</string>
 </resources>
