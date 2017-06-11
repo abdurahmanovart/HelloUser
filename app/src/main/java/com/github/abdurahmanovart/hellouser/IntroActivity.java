@@ -1,6 +1,4 @@
 package com.github.abdurahmanovart.hellouser;
-
-import android.inputmethodservice.Keyboard;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
