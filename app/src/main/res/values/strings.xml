@@ -2,7 +2,8 @@
     <string name="app_name">Hello User!</string>
     <string name="intro">Интро</string>
     <string name="main_activity">Главная активити</string>
-    <string name="phone_number">Ваш номер телефона</string>
+    <string name="input_data">Введите логин и номер телефона</string>
     <string name="login">Логин</string>
     <string name="hint">введите номер полностью</string>
+    <string name="invalid_input_data_message">Введенные данные некорректны</string>
 </resources>
