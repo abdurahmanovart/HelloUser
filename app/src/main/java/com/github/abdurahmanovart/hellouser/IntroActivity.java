@@ -63,7 +63,6 @@ public class IntroActivity extends AppCompatActivity {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: 11.06.17 hide keyboard here!
                 if(isInputDataCorrect())
                 startActivity(MainActivity.createExplictIntent(getApplicationContext()));
                 else
@@ -111,10 +110,13 @@ public class IntroActivity extends AppCompatActivity {
         if(maskFilled){
             mLoginButton.setEnabled(true);
             mHintTextView.setVisibility(View.INVISIBLE);
+            Utils.hideKeyBoard(mPhoneEditText,getApplicationContext());
         } else {
             mLoginButton.setEnabled(false);
             mHintTextView.setVisibility(View.VISIBLE);
         }
         }
     }
+
+
 }
