@@ -7,11 +7,20 @@
     tools:context="com.github.abdurahmanovart.hellouser.MainActivity">
 
     <TextView
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        android:id="@+id/textView"
+        android:id="@+id/hello_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_above="@+id/android_image_view"
         android:layout_centerHorizontal="true"
-        android:text="@string/app_name"/>
+        android:text="@string/app_name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
+
+    <ImageView
+        android:id="@+id/android_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher"
+        />
 </RelativeLayout>

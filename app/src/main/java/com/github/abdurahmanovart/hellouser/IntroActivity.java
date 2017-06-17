@@ -1,4 +1,5 @@
 package com.github.abdurahmanovart.hellouser;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -21,6 +22,7 @@ public class IntroActivity extends AppCompatActivity {
     private EditText mPhoneEditText;
     boolean isLoginFieldCorrect = false;
     boolean isPhoneFieldCorrect = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,12 +36,13 @@ public class IntroActivity extends AppCompatActivity {
 
 
     }
+
     //>>> private methods
     private void initLoginField() {
         mLoginEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            //no need to implement this method
+                //no need to implement this method
             }
 
             @Override
@@ -54,19 +57,19 @@ public class IntroActivity extends AppCompatActivity {
         });
     }
 
-        private boolean isInputDataCorrect(){
-            return isLoginFieldCorrect&&isPhoneFieldCorrect;
+    private boolean isInputDataCorrect() {
+        return isLoginFieldCorrect && isPhoneFieldCorrect;
 
-        }
+    }
 
     private void initLoginButton() {
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isInputDataCorrect())
-                startActivity(MainActivity.createExplictIntent(getApplicationContext()));
+                if (isInputDataCorrect())
+                    startActivity(MainActivity.createExplicitIntent(getApplicationContext()));
                 else
-                    Toast.makeText(getApplicationContext(),getString(R.string.invalid_input_data_message),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.invalid_input_data_message), Toast.LENGTH_LONG).show();
             }
         });
         mLoginButton.setEnabled(false);
@@ -92,9 +95,9 @@ public class IntroActivity extends AppCompatActivity {
 
     private void initViews() {
         mPhoneEditText = (EditText) findViewById(R.id.edit_text);
-        mLoginEditText = (EditText)findViewById(R.id.login_edit_text);
-        mHintTextView = (TextView)findViewById(R.id.hint_text_view);
-        mLoginButton = (Button)findViewById(R.id.login_button);
+        mLoginEditText = (EditText) findViewById(R.id.login_edit_text);
+        mHintTextView = (TextView) findViewById(R.id.hint_text_view);
+        mLoginButton = (Button) findViewById(R.id.login_button);
 
         mHintTextView.setText(getString(R.string.hint));
         mHintTextView.setVisibility(View.INVISIBLE);
@@ -102,19 +105,19 @@ public class IntroActivity extends AppCompatActivity {
 
     //<<< private methods
 
-    private class ValueListener implements MaskedTextChangedListener.ValueListener{
+    private class ValueListener implements MaskedTextChangedListener.ValueListener {
 
         @Override
         public void onTextChanged(boolean maskFilled, String value) {
             isPhoneFieldCorrect = maskFilled;
-        if(maskFilled){
-            mLoginButton.setEnabled(true);
-            mHintTextView.setVisibility(View.INVISIBLE);
-            Utils.hideKeyBoard(mPhoneEditText,getApplicationContext());
-        } else {
-            mLoginButton.setEnabled(false);
-            mHintTextView.setVisibility(View.VISIBLE);
-        }
+            if (maskFilled) {
+                mLoginButton.setEnabled(true);
+                mHintTextView.setVisibility(View.INVISIBLE);
+                Utils.hideKeyBoard(mPhoneEditText, getApplicationContext());
+            } else {
+                mLoginButton.setEnabled(false);
+                mHintTextView.setVisibility(View.VISIBLE);
+            }
         }
     }
 
