@@ -3,8 +3,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="@dimen/width_intro"
               android:layout_height="match_parent"
-              android:gravity="center_horizontal"
               android:layout_gravity="center_horizontal"
+              android:gravity="center_horizontal"
               android:orientation="vertical"
               tools:context="com.github.abdurahmanovart.hellouser.IntroActivity">
 
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/edit_text"
+            android:id="@+id/phone_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="+ ()0123456789"
@@ -50,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/hint"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
         tools:text="подсказка"/>
 
