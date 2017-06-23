@@ -1,57 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="@dimen/width_intro"
+              android:layout_height="match_parent"
               android:gravity="center_horizontal"
-    tools:context="com.github.abdurahmanovart.hellouser.IntroActivity">
+              android:layout_gravity="center_horizontal"
+              android:orientation="vertical"
+              tools:context="com.github.abdurahmanovart.hellouser.IntroActivity">
 
     <TextView
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        android:layout_marginTop="@dimen/margin_top"
-        android:layout_marginBottom="@dimen/margin_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_top"
         android:text="@string/input_data"
-         />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+        />
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content">
-        <EditText
-            android:hint="@string/login"
-            android:digits="abcdefghijklmnopqrstuvwxyz"
-            android:id="@+id/login_edit_text"
-            android:inputType="text"
-            android:maxLength="10"
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    </android.support.design.widget.TextInputLayout><android.support.design.widget.TextInputLayout
-        android:layout_width = "match_parent"
-        android:layout_height = "wrap_content">
         <EditText
-            android:digits="+ ()0123456789"
-            android:id="@+id/edit_text"
-            android:inputType="phone"
-            android:layout_width = "match_parent"
-            android:layout_height = "wrap_content"/>
+            android:id="@+id/login_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="abcdefghijklmnopqrstuvwxyz"
+            android:hint="@string/login"
+            android:inputType="text"
+            android:maxLength="10"/>
 
     </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="+ ()0123456789"
+            android:inputType="phone"/>
+
+    </android.support.design.widget.TextInputLayout>
+
     <TextView
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        tools:text="подсказка"
-        android:layout_marginBottom="@dimen/margin_small"
         android:id="@+id/hint_text_view"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+        tools:text="подсказка"/>
+
     <Button
         android:id="@+id/login_button"
-        android:layout_margin="@dimen/margin_small"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:text="@string/login"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_small"
+        android:text="@string/login"/>
 
 </LinearLayout>
