@@ -70,8 +70,10 @@ public class IntroActivity extends AppCompatActivity {
     @OnClick(R.id.login_button)
     void login() {
         if (isInputDataCorrect()) {
-            goToMainActivity();
+            Utils.writeUserLogin(this, mLoginEditText.getText().toString());
             Utils.writeIsAlreadyLoggedIn(this, true);
+            goToMainActivity();
+
         } else
             Toast.makeText(getApplicationContext(), getString(R.string.invalid_input_data_message), Toast.LENGTH_LONG).show();
     }
@@ -98,7 +100,7 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private void goToMainActivity() {
-        startActivity(MainActivity.createExplicitIntent(getApplicationContext()));
+        startActivity(MainActivity.createExplicitIntent(getApplicationContext(), Utils.readUserLogin(this)));
     }
 
 
