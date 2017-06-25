@@ -40,6 +40,10 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
+        if (Utils.readIsAlreadyLoggedIn(this)) {
+            goToMainActivity();
+        }
+
 
         ButterKnife.bind(this);
         initMaskPhoneField();
@@ -65,9 +69,10 @@ public class IntroActivity extends AppCompatActivity {
 
     @OnClick(R.id.login_button)
     void login() {
-        if (isInputDataCorrect())
-            startActivity(MainActivity.createExplicitIntent(getApplicationContext()));
-        else
+        if (isInputDataCorrect()) {
+            goToMainActivity();
+            Utils.writeIsAlreadyLoggedIn(this, true);
+        } else
             Toast.makeText(getApplicationContext(), getString(R.string.invalid_input_data_message), Toast.LENGTH_LONG).show();
     }
 
@@ -91,6 +96,11 @@ public class IntroActivity extends AppCompatActivity {
         mPhoneEditText.setHint(listener.placeholder());
 
     }
+
+    private void goToMainActivity() {
+        startActivity(MainActivity.createExplicitIntent(getApplicationContext()));
+    }
+
 
     //<<< private methods
 
