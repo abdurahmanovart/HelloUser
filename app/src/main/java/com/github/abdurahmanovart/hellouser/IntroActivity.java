@@ -1,7 +1,7 @@
 package com.github.abdurahmanovart.hellouser;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +19,7 @@ import butterknife.OnTextChanged;
 public class IntroActivity extends AppCompatActivity {
 
     private static final int MIN_LOGIN_LENGTH = 5;
+    private static final int PASSWORD_MIN_LENGTH = 8;
 
     @BindView(R.id.hint_text_view)
     TextView mHintTextView;
@@ -29,11 +30,15 @@ public class IntroActivity extends AppCompatActivity {
     @BindView(R.id.login_edit_text)
     EditText mLoginEditText;
 
+    @BindView(R.id.password_edit_text)
+    EditText mPasswordEditText;
+
     @BindView(R.id.phone_edit_text)
     EditText mPhoneEditText;
 
     boolean isLoginFieldCorrect = false;
     boolean isPhoneFieldCorrect = false;
+    boolean isPasswordCorrect = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +64,7 @@ public class IntroActivity extends AppCompatActivity {
     }
 
     private boolean isInputDataCorrect() {
-        return isLoginFieldCorrect && isPhoneFieldCorrect;
+        return isLoginFieldCorrect && isPhoneFieldCorrect && isPasswordCorrect;
 
     }
 
@@ -76,6 +81,18 @@ public class IntroActivity extends AppCompatActivity {
 
         } else
             Toast.makeText(getApplicationContext(), getString(R.string.invalid_input_data_message), Toast.LENGTH_LONG).show();
+    }
+
+    @OnTextChanged(value = R.id.password_edit_text,
+            callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
+    void afterPasswordInput(Editable editable) {
+        isPasswordCorrect = editable.length() >= PASSWORD_MIN_LENGTH;
+        if (!isPasswordCorrect) {
+            mPasswordEditText.setError("password is easy! minimum " + PASSWORD_MIN_LENGTH + " digits");
+        } else {
+            mPasswordEditText.setError(null);
+            Utils.writePassword(IntroActivity.this, mPasswordEditText.getText().toString());
+        }
     }
 
 
