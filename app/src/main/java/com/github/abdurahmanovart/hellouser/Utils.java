@@ -28,45 +28,37 @@ public class Utils {
     }
 
     public static void writeIsAlreadyLoggedIn(Activity activity, boolean loggedIn) {
-        SharedPreferences sharedPref = getPrivatePreferences(activity);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences.Editor editor = getSharedPreferencesPrivateEditor(activity);
         editor.putBoolean(IS_LOGGED_IN, loggedIn);
         editor.apply();
     }
 
-
-
     public static boolean readIsAlreadyLoggedIn(Activity activity) {
-        SharedPreferences sharedPref = getPrivatePreferences(activity);
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getBoolean(IS_LOGGED_IN, false);
 
     }
 
     public static void writeUserLogin(Activity activity, @NonNull String userLogin) {
-        SharedPreferences sharedPref = getPrivatePreferences(activity);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences.Editor editor = getSharedPreferencesPrivateEditor(activity);
         editor.putString(USER_LOGIN, userLogin);
         editor.apply();
     }
 
     public static String readUserLogin(Activity activity) {
-        SharedPreferences sharedPreferences = getPrivatePreferences(activity);
+        SharedPreferences sharedPreferences = activity.getPreferences(Context.MODE_PRIVATE);
         String defaultValue = "world";
         return " " + sharedPreferences.getString(USER_LOGIN, defaultValue);
-
     }
 
     public static void writePassword(Activity activity, @NonNull String password) {
-        SharedPreferences sharedPreferences = getDefaultPreferences(activity);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = getSharedPreferencesDefaultEditor(activity);
         editor.putString(USER_PASSWORD, makeEncryptedPassword(password));
         editor.apply();
     }
 
-
-
     public static boolean isPasswordMatching(Activity activity, @NonNull String newPassword) {
-        SharedPreferences sharedPreferences = getDefaultPreferences(activity);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
         String defValue = "qwea#@<wmel213@aA";
         String savedPasswordEncrypted = sharedPreferences.getString(USER_PASSWORD, defValue);
         return getEncryptor().checkPassword(newPassword, savedPasswordEncrypted);
@@ -81,15 +73,15 @@ public class Utils {
             mEncryptor = new BasicPasswordEncryptor();
         }
         return mEncryptor;
-
-
+    }
+    private static SharedPreferences.Editor getSharedPreferencesPrivateEditor(Activity activity){
+        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+        return sharedPref.edit();
+    }
+    private static SharedPreferences.Editor getSharedPreferencesDefaultEditor(Activity activity){
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
+        return sharedPref.edit();
     }
 
-    private static SharedPreferences getDefaultPreferences(Activity activity) {
-        return PreferenceManager.getDefaultSharedPreferences(activity);
-    }
-    private static SharedPreferences getPrivatePreferences(Activity activity) {
-        return activity.getPreferences(Context.MODE_PRIVATE);
-    }
 
 }

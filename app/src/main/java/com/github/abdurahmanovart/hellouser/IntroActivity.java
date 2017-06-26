@@ -48,13 +48,9 @@ public class IntroActivity extends AppCompatActivity {
         if (Utils.readIsAlreadyLoggedIn(this)) {
             goToMainActivity();
         }
-
-
         ButterKnife.bind(this);
         initMaskPhoneField();
         enableLoginButton(false);
-
-
     }
 
     @OnTextChanged(value = R.id.login_edit_text,
@@ -95,9 +91,7 @@ public class IntroActivity extends AppCompatActivity {
         }
     }
 
-
     //>>> private methods
-
 
     private void initMaskPhoneField() {
         final MaskedTextChangedListener listener = new MaskedTextChangedListener(
@@ -106,20 +100,16 @@ public class IntroActivity extends AppCompatActivity {
                 mPhoneEditText,
                 null,
                 new ValueListener()
-
-
         );
 
         mPhoneEditText.addTextChangedListener(listener);
         mPhoneEditText.setOnFocusChangeListener(listener);
         mPhoneEditText.setHint(listener.placeholder());
-
     }
 
     private void goToMainActivity() {
         startActivity(MainActivity.createExplicitIntent(getApplicationContext(), Utils.readUserLogin(this)));
     }
-
 
     //<<< private methods
 
@@ -138,6 +128,5 @@ public class IntroActivity extends AppCompatActivity {
             }
         }
     }
-
 
 }
