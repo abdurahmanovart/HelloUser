@@ -55,12 +55,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         String userLogin = "Hello,";
-        if (savedInstanceState == null) {
-            userLogin += getIntent().getExtras().getString(EXTRA_USER_LOGIN, "world");
-
-        } else {
-            userLogin += Utils.readUserLogin(this);
-        }
+        userLogin += getIntent().getExtras().getString(EXTRA_USER_LOGIN, "world");
         mUserLoginTextView.setText(userLogin);
 
         ImageView imageView = (ImageView) findViewById(R.id.android_image_view);

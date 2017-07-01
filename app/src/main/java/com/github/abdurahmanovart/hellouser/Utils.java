@@ -10,11 +10,13 @@ import android.view.inputmethod.InputMethodManager;
 
 import org.jasypt.util.password.BasicPasswordEncryptor;
 
+
 /**
  * @author Abdurakhmanov on 14.06.17
  */
 
 public class Utils {
+
 
     private static final String IS_LOGGED_IN = "logged_in";
     private static final String USER_LOGIN = "user_login";
@@ -74,11 +76,13 @@ public class Utils {
         }
         return mEncryptor;
     }
-    private static SharedPreferences.Editor getSharedPreferencesPrivateEditor(Activity activity){
+
+    private static SharedPreferences.Editor getSharedPreferencesPrivateEditor(Activity activity) {
         SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
         return sharedPref.edit();
     }
-    private static SharedPreferences.Editor getSharedPreferencesDefaultEditor(Activity activity){
+
+    private static SharedPreferences.Editor getSharedPreferencesDefaultEditor(Activity activity) {
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(activity);
         return sharedPref.edit();
     }
