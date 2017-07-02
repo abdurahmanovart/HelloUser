@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        String userLogin = "Hi,";
+        String userLogin = "Hello,";
         userLogin += getIntent().getExtras().getString(EXTRA_USER_LOGIN, "world");
         mUserLoginTextView.setText(userLogin);
 
