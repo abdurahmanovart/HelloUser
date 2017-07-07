@@ -12,8 +12,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone"
-        >
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/hello_text_view"
@@ -23,11 +22,10 @@
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"/>
 
         <ImageView
-            android:id="@+id/android_image_view"
+            android:id="@+id/avatar_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher"
-            />
+            android:src="@mipmap/ic_launcher"/>
 
     </LinearLayout>
 
@@ -38,13 +36,12 @@
         android:layout_below="@id/basic_layout"
         android:gravity="center"
         android:orientation="vertical">
+
         <ImageView
-            android:src="@drawable/lock_vector"
-            android:padding="@dimen/margin_small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            />
+            android:padding="@dimen/margin_small"
+            android:src="@drawable/lock_vector"/>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="@dimen/width_intro"
@@ -62,6 +59,5 @@
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
-
 
 </RelativeLayout>

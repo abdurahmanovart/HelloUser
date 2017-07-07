@@ -14,8 +14,7 @@
         android:layout_marginBottom="@dimen/margin_small"
         android:layout_marginTop="@dimen/margin_top"
         android:text="@string/input_data"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
-        />
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"/>
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String IMAGE_URL = "http://i.imgur.com/DvpvklR.png";
     private static final String EXTRA_USER_LOGIN = "user_login";
+
     @BindView(R.id.hello_text_view)
     TextView mUserLoginTextView;
 
@@ -35,14 +36,16 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.password_edit_text)
     EditText mPasswordEditText;
 
-    private boolean isPasswordCorrect;
+    @BindView(R.id.avatar_image_view)
+    ImageView mAvatarImageView;
 
+    private boolean mIsPasswordCorrect;
 
     public static Intent createExplicitIntent(Context context, String userLogin) {
         Intent intent = new Intent(context, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+   intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         intent.putExtra(EXTRA_USER_LOGIN, userLogin);
         return intent;
     }
@@ -58,15 +61,13 @@ public class MainActivity extends AppCompatActivity {
         userLogin += getIntent().getExtras().getString(EXTRA_USER_LOGIN, "world");
         mUserLoginTextView.setText(userLogin);
 
-        ImageView imageView = (ImageView) findViewById(R.id.android_image_view);
-
         Picasso.with(this)
                 .load(IMAGE_URL)
                 .resize(500, 500)
                 .centerCrop()
                 .placeholder(R.drawable.progress_animation)
                 .error(R.drawable.error)
-                .into(imageView);
+                .into(mAvatarImageView);
     }
 
     @Override
@@ -80,19 +81,23 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     }
                 })
-                .setNegativeButton(getString(R.string.no), null)
-                .create().show();
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     @OnTextChanged(value = R.id.password_edit_text,
             callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
     void afterPasswordInput(Editable editable) {
-        isPasswordCorrect = Utils.isPasswordMatching(MainActivity.this, editable.toString());
-        if (isPasswordCorrect) {
+        mIsPasswordCorrect = Utils.isPasswordMatching(MainActivity.this, editable.toString());
+        if (mIsPasswordCorrect) {
             showMainLayout();
         }
     }
-
 
     //>>> private methods
 
@@ -101,6 +106,4 @@ public class MainActivity extends AppCompatActivity {
         mBasicLayout.setVisibility(View.VISIBLE);
         mPasswordLayout.setVisibility(View.GONE);
     }
-
-
 }

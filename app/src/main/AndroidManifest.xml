@@ -15,7 +15,6 @@
             android:name=".IntroActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/intro"
-            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -27,8 +26,7 @@
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/main_activity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"
-            >
+            android:theme="@style/Theme.Design.Light.NoActionBar">
         </activity>
     </application>
 

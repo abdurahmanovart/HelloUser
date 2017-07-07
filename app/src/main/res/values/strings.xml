@@ -8,7 +8,7 @@
     <string name="invalid_input_data_message">Введенные данные некорректны</string>
     <string name="password">Пароль</string>
     <string name="dialog_title">Выход из приложения</string>
-    <string name="dialog_message">Вы действительно хотите выйти из приложения</string>
+    <string name="dialog_message">Вы действительно хотите выйти из приложения?</string>
     <string name="yes">Да</string>
     <string name="no">Нет</string>
 </resources>

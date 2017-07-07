@@ -17,12 +17,15 @@ import org.jasypt.util.password.BasicPasswordEncryptor;
 
 public class Utils {
 
-
     private static final String IS_LOGGED_IN = "logged_in";
     private static final String USER_LOGIN = "user_login";
     private static final String USER_PASSWORD = "user_password";
 
     private static BasicPasswordEncryptor mEncryptor;
+
+    private Utils() {
+        throw new IllegalStateException("Can't create object");
+    }
 
     public static void hideKeyBoard(@NonNull View view, Context context) {
         InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -38,7 +41,6 @@ public class Utils {
     public static boolean readIsAlreadyLoggedIn(Activity activity) {
         SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
         return sharedPref.getBoolean(IS_LOGGED_IN, false);
-
     }
 
     public static void writeUserLogin(Activity activity, @NonNull String userLogin) {
