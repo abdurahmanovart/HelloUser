@@ -13,22 +13,26 @@
 2. Picasso - удобная работа с изображениями
 3. ButterKnife - байндинг элементов View во время кодогенерации, улучшает работу приложения на устройстве пользователя
 4. Crouton - всплывающие уведомления
+5. Jasypt - шифрование
 
+Обзор приложения - [YouTube](https://youtu.be/_BkCodQsfvo)
 
 --------------------------------------
-Just the first Android application.
+
 
 **Application review**
-* On the first screen there are 3 input fields: phone number, login and password
-* Restrictions for each input field
-* When are fields are filled correct, button "Login" becomes enabled, which opens the second screen
-* Also, when "Login" button is pressed, login, password and flag, indicating that the username and password have already been entered, saving in Shared Preferences
-* Password saving encrypted
-* On the second screen, there is one field for password input, when entered and stored password match, opens greeting and picture are showing
-* When the application starts, if login and password has already been entered, second screen opens immediately
+* There are three input fields on the first screen: phone number, login and password
+* There is input validation for each field
+* The "Login" button becomes enabled when all three fields are filled out correct. Then on click the second screen comes to the top.
+* All the user input data going to be saved at the moment button "login" pressed. The password is stored into device encrypted. Also it saves the state of being already logined. Shared preferences was used to save data.
+* User meets password input field at the second screen when opening the app after creating login and password. They need to input correct password to be able to go to the main screen. 
+* At the main screen user sees the greeting and pic, downloaded from web
 
-**Used libraries**
-1. Input Mask RedMadRobot - input mask for phone field input
-2. Picasso - easy work with pictures
-3. ButterKnife - View elements binding when compiling, faster application work on user's device
-4. Crouton - instead of Toast
+**Libraries used:**
+1. Input Mask RedMadRobot - user input masking library
+2. Picasso - allows for hassle-free image loading
+3. ButterKnife - field and method binding for Android views
+4. Crouton - context sensitive notifications for Android
+5. Jasypt - a java library which allows the developer to add basic encryption capabilities
+
+Application review - [YouTube](https://youtu.be/_BkCodQsfvo)
