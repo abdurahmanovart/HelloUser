@@ -19,7 +19,7 @@
 Just the first Android application.
 
 **Application review**
-* On the first screen there are 3 input fields: Phone number, login and password
+* On the first screen there are 3 input fields: phone number, login and password
 * Restrictions for each input field
 * When are fields are filled correct, button "Login" becomes enabled, which opens the second screen
 * Also, when "Login" button is pressed, login, password and flag, indicating that the username and password have already been entered, saving in Shared Preferences
