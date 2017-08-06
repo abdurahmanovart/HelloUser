@@ -30,8 +30,8 @@
 
 **Libraries used:**
 1. Input Mask RedMadRobot - user input masking library
-2. Picasso - allows for hassle-free image loading
-3. ButterKnife - field and method binding for Android views
+2. Picasso - A powerful image downloading and caching library for Android
+3. ButterKnife - Using Java annotations, makes Android development better by simplifying common tasks
 4. Crouton - context sensitive notifications for Android
 5. Jasypt - a java library which allows the developer to add basic encryption capabilities
 
